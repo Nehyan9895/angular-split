@@ -1,0 +1,136 @@
+/* Flexbox container to place menu bar and split panes side by side */
+.app-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  font-family: 'Arial', sans-serif;
+}
+
+.menu-bar {
+  width: 220px;
+  background-color: #cadcee; /* Light grey-blue */
+  padding: 20px 10px;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  color: #2c3e50; /* Darker text for contrast */
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.menu-bar.hidden {
+  transform: translateX(-240px); /* Slide the menu out when hidden */
+}
+
+.menu-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-bar li {
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu-bar li:hover,
+.menu-bar li.active {
+  background-color: #d9e3ea; /* Lighter grey-blue for hover */
+  border-radius: 5px;
+}
+
+.menu-bar a {
+  color: #2c3e50; /* Dark grey text */
+  text-decoration: none;
+  display: block;
+}
+
+.split-container {
+  flex-grow: 1; /* Take up the remaining space */
+  height: 100%; /* Ensure it stretches to full height */
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa; /* Light grey background */
+}
+
+.pane-header {
+  background-color: #cadcee; /* Light blue */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff; /* White text */
+  border-bottom: 2px solid #c0d8e7; /* Lighter blue border */
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Ensure it stays above the content while scrolling */
+}
+
+.pane-header button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.pane-header button:hover {
+  color: #ff6b6b; /* Soft red for hover */
+}
+
+.pane-content {
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #ffffff; /* White background */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+}
+
+.toggle-menu-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  padding: 10px 20px;
+  background-color: #a4c3d7; /* Light blue */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-menu-btn:hover {
+  background-color: #88b0c2; /* Darker light blue for hover */
+}
+
+.section-content {
+  background-color: #c2cad1; /* Very light grey-blue */
+  color: #2c3e50; /* Dark grey text */
+  height: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.toggle-direction-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #8cb693; /* Light green */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.toggle-direction-btn:hover {
+  background-color: #89c295; /* Darker light green for hover */
+}
