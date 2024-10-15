@@ -1,0 +1,26 @@
+.pane-header {
+  background-color: #e0e0e0;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pane-header button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.pane-header button:hover {
+  color: red;
+}
+
+.pane-content {
+  padding: 10px;
+}
+
+.section-content {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 10px;
+}

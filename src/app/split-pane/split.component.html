@@ -1,0 +1,15 @@
+<as-split [direction]="isHorizontal ? 'horizontal' : 'vertical'">
+  <as-split-area *ngFor="let pane of sections" [size]="pane.size">
+    <div class="pane-header">
+      <span>{{ pane.name }}</span>
+      <button (click)="minimizePane(pane)">_</button>
+      <button (click)="closePane(pane)">X</button>
+    </div>
+    <div class="pane-content" *ngIf="!pane.minimized">
+      <div class="section-content">
+        <h2>{{ pane.name }}</h2>
+        <p>{{ pane.content }}</p>
+      </div>
+    </div>
+  </as-split-area>
+</as-split>
