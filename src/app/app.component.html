@@ -21,7 +21,7 @@
           <button (click)="closePane(pane)">X</button>
         </div>
         <!-- Display Visit Summary and Lab Reports components here -->
-         <div class="pane-content" *ngIf="!pane.minimized" (scroll)="onPaneScroll($event, pane)">
+         <div class="pane-content" *ngIf="!pane.minimized">
           <div class="section" id="visit-summary">
             <h2>Visit Summary</h2>
             <div class="section-content"><app-section-one></app-section-one></div>
@@ -65,25 +65,27 @@
             <div class="section-content"><app-section-nine></app-section-nine></div>
           </div>
 
-          <div class="section" id="operation-notes">
+          <div class="section" id="operation-notes-1">
             <h2>Operation Notes</h2>
             <div class="section-content">
               <app-section-ten></app-section-ten>
             </div>
           </div>
-          <div class="section" id="operation-notes">
+          
+          <div class="section" id="operation-notes-2">
             <h2>Operative Diagnosis</h2>
             <div class="section-content">
               <app-section-eleven></app-section-eleven>
             </div>
           </div>
-
-          <div class="section" id="operation-notes">
+          
+          <div class="section" id="operation-notes-3">
             <h2>Images</h2>
             <div class="section-content">
               <app-section-twelve></app-section-twelve>
             </div>
           </div>
+          
         </div>
       </as-split-area>
     </as-split>

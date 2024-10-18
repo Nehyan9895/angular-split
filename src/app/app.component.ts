@@ -89,19 +89,19 @@ export class AppComponent implements OnInit {
     this.menuVisible = !this.menuVisible;
   }
 
-  onPaneScroll(event: any, pane: Pane) {
-    setTimeout(() => {
-      const paneElement = event.target;
-      const sectionElements = paneElement.querySelectorAll('.section');
+  // onPaneScroll(event: any, pane: Pane) {
+  //   setTimeout(() => {
+  //     const paneElement = event.target;
+  //     const sectionElements = paneElement.querySelectorAll('.section');
       
-      sectionElements.forEach((sectionElement: HTMLElement) => {
-        const rect = sectionElement.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          this.activeSection = sectionElement.id;
-        }
-      });
-    }, 0); // Delay to ensure proper rendering
-  }
+  //     sectionElements.forEach((sectionElement: HTMLElement) => {
+  //       const rect = sectionElement.getBoundingClientRect();
+  //       if (rect.top < window.innerHeight && rect.bottom >= 0) {
+  //         this.activeSection = sectionElement.id;
+  //       }
+  //     });
+  //   }, 0); // Delay to ensure proper rendering
+  // }
   
 
   
