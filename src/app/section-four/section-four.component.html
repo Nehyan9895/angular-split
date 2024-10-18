@@ -1,0 +1,26 @@
+<table class="diagnosis-table">
+    <thead>
+      <tr>
+        <th>Sl#</th>
+        <th>Diagnosis Name</th>
+        <th>ICD</th>
+        <th>Level</th>
+        <th>Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let diagnosis of diagnoses; let i = index">
+        <td>{{ diagnosis.sl }}</td>
+        <td>{{ diagnosis.diagnosisName }}</td>
+        <td>{{ diagnosis.icd }}</td>
+        <td>{{ diagnosis.level }}</td>
+        <td>{{ diagnosis.type }}</td>
+        <td>
+          <button *ngIf="diagnosis.isEditable" (click)="edit(diagnosis)">Edit</button>
+          <button (click)="delete(diagnosis.sl)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="add()">Add Diagnosis</button>

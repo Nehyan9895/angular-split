@@ -1,0 +1,155 @@
+<div class="section-five">
+    <h2>Patient's Current Vitals Entry and Previous Views.</h2>
+    <div class="vitals-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date & Time</th>
+            <th>Temp °C</th>
+            <th>Pulse (/min)</th>
+            <th>Resp (/min)</th>
+            <th>BP (mm Hg)</th>
+            <th>Weight (kg)</th>
+            <th>Height (cm)</th>
+            <th>BMI (kg/m²)</th>
+            <th>BSA (m²)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of vitalEntries; let i = index">
+            <td>
+              <input type="text" [(ngModel)]="entry.dateAndTime"
+                     (ngModelChange)="onVitalInputChange(i, 'dateAndTime', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.temp"
+                     (ngModelChange)="onVitalInputChange(i, 'temp', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.pulse"
+                     (ngModelChange)="onVitalInputChange(i, 'pulse', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.resp"
+                     (ngModelChange)="onVitalInputChange(i, 'resp', $event)">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="entry.bp"
+                     (ngModelChange)="onVitalInputChange(i, 'bp', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.weight"
+                     (ngModelChange)="onVitalInputChange(i, 'weight', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.height"
+                     (ngModelChange)="onVitalInputChange(i, 'height', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.bmi"
+                     (ngModelChange)="onVitalInputChange(i, 'bmi', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.bsa"
+                     (ngModelChange)="onVitalInputChange(i, 'bsa', $event)">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vitals-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date & Time</th>
+            <th>HR (/min)</th>
+            <th>Head C (cm)</th>
+            <th>B W<3 yrs (kg)</th>
+            <th>WC (cm)</th>
+            <th>Hip C (cm)</th>
+            <th>Mid-Arm C (cm)</th>
+            <th>Head N C (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of vitalEntries; let i = index">
+            <td>
+              <input type="text" [(ngModel)]="entry.dateAndTime"
+                     (ngModelChange)="onVitalInputChange(i, 'dateAndTime', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.hr"
+                     (ngModelChange)="onVitalInputChange(i, 'hr', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.headC"
+                     (ngModelChange)="onVitalInputChange(i, 'headC', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.bw3yrs"
+                     (ngModelChange)="onVitalInputChange(i, 'bw3yrs', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.wc"
+                     (ngModelChange)="onVitalInputChange(i, 'wc', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.hipC"
+                     (ngModelChange)="onVitalInputChange(i, 'hipC', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.midArmC"
+                     (ngModelChange)="onVitalInputChange(i, 'midArmC', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.headNC"
+                     (ngModelChange)="onVitalInputChange(i, 'headNC', $event)">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vitals-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date & Time</th>
+            <th>SpO2 (%)</th>
+            <th>CRT (sec)</th>
+            <th>BG Level (mg/dl)</th>
+            <th>Pain Score</th>
+            <th>EWS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of vitalEntries; let i = index">
+            <td>
+              <input type="text" [(ngModel)]="entry.dateAndTime"
+                     (ngModelChange)="onVitalInputChange(i, 'dateAndTime', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.spO2"
+                     (ngModelChange)="onVitalInputChange(i, 'spO2', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.crt"
+                     (ngModelChange)="onVitalInputChange(i, 'crt', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.bgLevel"
+                     (ngModelChange)="onVitalInputChange(i, 'bgLevel', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.painScore"
+                     (ngModelChange)="onVitalInputChange(i, 'painScore', $event)">
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="entry.ews"
+                     (ngModelChange)="onVitalInputChange(i, 'ews', $event)">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button (click)="addVitalEntry()">Add Vital Entry</button>
+  </div>

@@ -107,9 +107,9 @@
 }
 
 .section-content {
-  background-color: #c2cad1; /* Very light grey-blue */
+  background-color: #f3f9ff; /* Very light grey-blue */
   color: #2c3e50; /* Dark grey text */
-  height: 500px;
+  height: auto;
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -134,3 +134,4 @@
 .toggle-direction-btn:hover {
   background-color: #89c295; /* Darker light green for hover */
 }
+

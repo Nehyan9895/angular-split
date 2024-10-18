@@ -1,0 +1,57 @@
+<div class="allergies">
+    <div class="drug-allergies">
+      <h3>DRUG ALLERGIES</h3>
+      <div class="no-known-allergies">
+        <input type="checkbox" [checked]="noKnownAllergies">
+        <label>No Known Allergies</label>
+      </div>
+      <table class="allergy-table">
+        <thead>
+          <tr>
+            <th>Generic Name</th>
+            <th>Brand Name</th>
+            <th>Remarks</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let allergy of drugAllergies; let i = index">
+            <td>{{ allergy.genericName }}</td>
+            <td>{{ allergy.brandName }}</td>
+            <td>{{ allergy.remarks }}</td>
+            <td>
+              <div class="checkbox">
+                <input type="checkbox" [checked]="allergy.checked" (change)="toggleAllergy(i)">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="other-allergies">
+      <h3>OTHER ALLERGIES</h3>
+      <table class="allergy-table">
+        <thead>
+          <tr>
+            <th>Allergy Details</th>
+            <th>Allergy Item</th>
+            <th>Remarks</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let allergy of otherAllergies; let i = index">
+            <td>{{ allergy.allergyDetails }}</td>
+            <td>{{ allergy.allergyItem }}</td>
+            <td>{{ allergy.remarks }}</td>
+            <td>
+              <div class="checkbox">
+                <input type="checkbox" [checked]="allergy.checked" (change)="toggleAllergy(i)">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

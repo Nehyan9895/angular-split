@@ -1,8 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 import { AngularSplitModule } from 'angular-split';
+import { SectionOneComponent } from "./section-one/section-one.component";
+import { SectionTwoComponent } from "./section-two/section-two.component";
+import { SectionThreeComponent } from "./section-three/section-three.component";
+import { SectionFourComponent } from "./section-four/section-four.component";
+import { SectionFiveComponent } from "./section-five/section-five.component";
+import { SectionSixComponent } from "./section-six/section-six.component";
+import { SectionSevenComponent } from "./section-seven/section-seven.component";
+import { SectionEightComponent } from "./section-eight/section-eight.component";
+import { SectionNineComponent } from "./section-nine/section-nine.component";
+import { SectionTenComponent } from "./section-ten/section-ten.component";
+import { SectionElevenComponent } from "./section-eleven/section-eleven.component";
 
 interface Pane {
   id: string;
@@ -14,17 +24,28 @@ interface Pane {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AngularSplitModule, CommonModule, DragDropModule],
+  imports: [AngularSplitModule, CommonModule, DragDropModule, SectionOneComponent, SectionTwoComponent, SectionThreeComponent, SectionFourComponent, SectionFiveComponent, SectionSixComponent, SectionSevenComponent, SectionEightComponent, SectionNineComponent, SectionTenComponent, SectionElevenComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+
+  constructor(private cdr: ChangeDetectorRef) {}
+
+
   sections = [
-    { id: 'section1', name: 'Section 1', content: 'Content for Section 1' },
-    { id: 'section2', name: 'Section 2', content: 'Content for Section 2' },
-    { id: 'section3', name: 'Section 3', content: 'Content for Section 3' },
-    { id: 'section4', name: 'Section 4', content: 'Content for Section 4' },
+    { id: 'visit-summary', name: 'Visit Summary' },
+    { id: 'lab-reports', name: 'Lab Reports' },
+    { id: 'Complaints', name: 'Complaints' },
+    { id: 'diagnosis', name: 'Diagnosis' },
+    { id: 'vitalSign', name: 'Vital Signs' },
+    { id: 'allergies', name: 'Allergies' },
+    { id: 'treatments', name: 'Admission Requests' },
+    { id: 'anaesthesia', name: 'Anaesthesia Record' },
+    { id: 'surgery-request', name: 'Surgery Request' },
+    { id: 'operation-notes', name: 'Operation Notes' }
   ];
+  
 
   splitPanes: Pane[] = [];
   activeSection: string = '';
@@ -68,28 +89,42 @@ export class AppComponent implements OnInit {
   }
 
   onPaneScroll(event: any, pane: Pane) {
-    const paneElement = event.target;
-    const sectionElements = paneElement.querySelectorAll('.section');
-    sectionElements.forEach((sectionElement: HTMLElement) => {
-      const rect = sectionElement.getBoundingClientRect();
-      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-        this.activeSection = sectionElement.id;
-      }
-    });
+    setTimeout(() => {
+      const paneElement = event.target;
+      const sectionElements = paneElement.querySelectorAll('.section');
+      
+      sectionElements.forEach((sectionElement: HTMLElement) => {
+        const rect = sectionElement.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          this.activeSection = sectionElement.id;
+        }
+      });
+    }, 0); // Delay to ensure proper rendering
   }
+  
 
+  
   scrollToSection(sectionId: string) {
-    const sectionElement = document.getElementById(sectionId);
-    if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    this.cdr.detectChanges();  // Manually trigger change detection
+    setTimeout(() => {
+      const sectionElement = document.getElementById(sectionId);
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.warn(`Section with ID ${sectionId} not found`);
+      }
+    }, 100); // Delay the scroll slightly
   }
+  
+  
+  
+  
 
   onSectionClick(section: any) {
-    if (this.splitPanes.length === 1) {
-      this.scrollToSection(section.id);
-    }
+    console.log('Scrolling to section:', section.id);  // Add this to debug
+    this.scrollToSection(section.id);
   }
+  
 
   toggleSplitDirection() {
     this.splitDirection = this.splitDirection === 'vertical' ? 'horizontal' : 'vertical';

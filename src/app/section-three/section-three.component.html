@@ -1,0 +1,18 @@
+<div class="patient-notes-container">
+    <div class="section">
+      <div class="section-header">Chief Complaints With History</div>
+      <textarea [(ngModel)]="chiefComplaints" (ngModelChange)="onChiefComplaintsChange($event)"></textarea>
+    </div>
+    <div class="section">
+      <div class="section-header">Physical Examination</div>
+      <textarea [(ngModel)]="physicalExamination" (ngModelChange)="onPhysicalExaminationChange($event)"></textarea>
+    </div>
+    <div class="section">
+      <div class="section-header">Special Comments</div>
+      <textarea [(ngModel)]="specialComments" (ngModelChange)="onSpecialCommentsChange($event)"></textarea>
+    </div>
+    <div class="section">
+      <div class="section-header">Treatment And Plan</div>
+      <textarea [(ngModel)]="treatmentAndPlan" (ngModelChange)="onTreatmentAndPlanChange($event)"></textarea>
+    </div>
+  </div>
