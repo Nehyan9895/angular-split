@@ -13,6 +13,7 @@ import { SectionEightComponent } from "./section-eight/section-eight.component";
 import { SectionNineComponent } from "./section-nine/section-nine.component";
 import { SectionTenComponent } from "./section-ten/section-ten.component";
 import { SectionElevenComponent } from "./section-eleven/section-eleven.component";
+import { SectionTwelveComponent } from "./section-twelve/section-twelve.component";
 
 interface Pane {
   id: string;
@@ -24,7 +25,7 @@ interface Pane {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AngularSplitModule, CommonModule, DragDropModule, SectionOneComponent, SectionTwoComponent, SectionThreeComponent, SectionFourComponent, SectionFiveComponent, SectionSixComponent, SectionSevenComponent, SectionEightComponent, SectionNineComponent, SectionTenComponent, SectionElevenComponent],
+  imports: [AngularSplitModule, CommonModule, DragDropModule, SectionOneComponent, SectionTwoComponent, SectionThreeComponent, SectionFourComponent, SectionFiveComponent, SectionSixComponent, SectionSevenComponent, SectionEightComponent, SectionNineComponent, SectionTenComponent, SectionElevenComponent, SectionTwelveComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
